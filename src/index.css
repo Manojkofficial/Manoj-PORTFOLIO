@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme */
+    --color-primary: 195 7 63; 
+    --color-dark: 243 244 246;    /* card background light */
+    --color-darker: 255 255 255;  /* body background light */
+    --color-light: 17 24 39;      /* main text color light */
+    --color-grayed: 75 85 99;     /* secondary text color light */
+  }
+
+  .dark {
+    /* Dark Theme */
+    --color-primary: 195 7 63; 
+    --color-dark: 26 26 29;    
+    --color-darker: 11 12 16;  
+    --color-light: 255 255 255;
+    --color-grayed: 197 198 199;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-darker text-grayed font-sans min-h-screen selection:bg-primary selection:text-white;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-dark/60 backdrop-blur-md border border-grayed/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  
+  .glass-card {
+    @apply bg-dark/40 backdrop-blur-sm border border-grayed/10 rounded-2xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(195,7,63,0.2)];
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-full bg-primary text-white font-medium transition-all duration-300 hover:bg-primary/80 hover:shadow-[0_0_15px_rgba(195,7,63,0.5)] active:scale-95;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-full bg-transparent border border-primary text-primary font-medium transition-all duration-300 hover:bg-primary/10 hover:shadow-[0_0_15px_rgba(195,7,63,0.3)] active:scale-95;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-pink-500;
+  }
+
+  .nav-link {
+    @apply text-grayed hover:text-white transition-colors duration-300 cursor-pointer font-medium relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0C10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1A1D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C3073F;
+}
